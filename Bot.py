@@ -1,5 +1,6 @@
 import telebot
 import Text
+import datetime
 
 bot = telebot.TeleBot('1008655818:AAERu26TQlQpE5Lx0OrwNj16Do-aEcPegGw')
 
@@ -10,13 +11,17 @@ def welcome(message):
     bot.send_audio(message.chat.id, audio)
     audio.close()
     bot.send_message(message.chat.id, Text.welcome)
-    print(message.from_user.first_name, message.from_user.last_name, ': "' + message.text + '"')
+    hour, minute = datetime.datetime.now().hour, datetime.datetime.now().minute
+    print(str(hour+5) + ':' + str(minute), message.from_user.first_name, message.from_user.last_name,
+          ': "' + message.text + '"')
 
 
 @bot.message_handler(content_types=['text'])
 def text(message):
     bot.send_message(message.chat.id, message.text + '?!')
-    print(message.from_user.first_name, message.from_user.last_name, ': "' + message.text + '"')
+    hour, minute = datetime.datetime.now().hour, datetime.datetime.now().minute
+    print(str(hour+5) + ':' + str(minute), message.from_user.first_name, message.from_user.last_name,
+          ': "' + message.text + '"')
 
 
 @bot.message_handler(content_types=['photo'])
