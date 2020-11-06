@@ -24,7 +24,7 @@ def welcome(message):
 
 def first_step(message): #следующий щаг
     markup = types.ReplyKeyboardMarkup()
-    markup.add('Загадка 1', 'Загадка 2', 'Загадка 3', 'Загадка 4', 'Загадка 5', 'Загадка 6', 'Загадка 7', 'Загадка 8')
+    markup.add('Загадка 1', 'Загадка 2', 'Загадка 3', 'Загадка 4', 'Загадка 5', 'Загадка 6', 'Загадка 7', 'Загадка 8', 'Загадка 9')
     msg = bot.reply_to(message, "Выберите загадку", reply_markup=markup)
 
 
